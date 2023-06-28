@@ -1,3 +1,3 @@
-import './style.css'
+import './style.css';
+import './sketch.ts';
 
-console.log('hello');
