@@ -1,6 +1,3 @@
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber'
-import * as THREE from 'three';
 import './App.css'
 
 type SphereProps = {
@@ -8,7 +5,7 @@ type SphereProps = {
   color: string
 }
 
-const Sphere = ({ position, color }: SphereProps) => {
+export const Sphere = ({ position, color }: SphereProps) => {
   const radius = 0.714;
 
   return (
@@ -18,5 +15,3 @@ const Sphere = ({ position, color }: SphereProps) => {
     </mesh>
   )
 }
-
-export default Sphere
