@@ -1,27 +1,23 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three';
 import './App.css'
 
-const Box = ({ position }: { position: [number, number, number] }) => {
+type BoxProps = {
+  position: [number, number, number],
+  color: string
+}
+
+const Box = ({ position, color }: BoxProps) => {
   // This reference gives us direct access to the THREE.Mesh object
   const ref = useRef<THREE.Mesh>(null!)
-  // Hold state for hovered and clicked events
-  const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false)
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((_, delta) => (ref.current.rotation.x += delta))
 
   return (
-    <mesh
-      position={position}
-      ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={() => click(!clicked)}
-      onPointerOver={() => hover(true)}
-      onPointerOut={() => hover(false)}>
+    <mesh position={position} ref={ref} key={position.join(',')}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+      <meshStandardMaterial color={color} />
     </mesh>
   )
 }
