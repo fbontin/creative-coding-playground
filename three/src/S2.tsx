@@ -1,18 +1,26 @@
-import { combine, range } from './helpers';
-import { Sphere } from './Sphere';
+import { useFrame } from '@react-three/fiber';
+import { useRef } from 'react';
+import * as THREE from 'three';
 
 export const Sk2 = () => {
-  const points = combine(range(-10, 10, 1), range(-10, 10, 1));
-  return points.map(([x, y]) => {
-    const r = Math.abs(y * 15);
-    const g = Math.abs(x + y + 100);
-    const b = 0;
-
-    return <Sphere
-      key={`${x}-${y}`}
-      position={[x, y, -5]}
-      color={`rgb(${r}, ${g}, ${b})`}
-    />
+  const ref = useRef<THREE.Mesh>(null!);
+  useFrame((_, delta) => {
+    (ref.current.rotation.x += delta);
+    (ref.current.rotation.y += delta);
   })
+
+  const boxParams = {
+    width: 10,
+    height: 1,
+    depth: 1,
+    widthSegments: 1,
+    heightSegments: 1,
+    depthSegments: 1,
+  }
+
+  return <mesh ref={ref}>
+    <boxGeometry parameters={boxParams} />
+    <meshStandardMaterial color={'hotpink'} />
+  </mesh>
 }
 
