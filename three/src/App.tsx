@@ -2,11 +2,13 @@ import { Canvas } from '@react-three/fiber'
 import './App.css'
 import { Sk1 } from './sketches/S1';
 import { Sk2 } from './sketches/S2';
+import { Sk3 } from './sketches/S3';
 import { useState } from 'react';
 
 enum Sketch {
   S1 = 'S1',
-  S2 = 'S2'
+  S2 = 'S2',
+  S3 = 'S3',
 }
 
 const ChosenSketch = ({ sketch }: { sketch: string }) => {
@@ -15,6 +17,8 @@ const ChosenSketch = ({ sketch }: { sketch: string }) => {
       return <Sk1 />
     case Sketch.S2:
       return <Sk2 />
+    case Sketch.S3:
+      return <Sk3 />
   }
   return null;
 }
