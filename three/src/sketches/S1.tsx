@@ -1,5 +1,5 @@
-import { combine, range } from './helpers';
-import { Sphere } from './Sphere';
+import { combine, range } from '../helpers';
+import { Sphere } from '../components/Sphere';
 
 export const Sk1 = () => {
   const points = combine(range(-10, 10, 1), range(-10, 10, 1));

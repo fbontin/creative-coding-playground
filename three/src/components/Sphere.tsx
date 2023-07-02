@@ -1,5 +1,3 @@
-import './App.css'
-
 type SphereProps = {
   position: [number, number, number],
   color: string

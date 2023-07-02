@@ -1,6 +1,5 @@
 import { useRef, useLayoutEffect } from 'react';
 import * as THREE from 'three';
-import './App.css'
 
 type LineProps = {
   points: [number, number, number][],

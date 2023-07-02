@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import './App.css'
-import { Sk1 } from './S1';
-import { Sk2 } from './S2';
+import { Sk1 } from './sketches/S1';
+import { Sk2 } from './sketches/S2';
 import { useState } from 'react';
 
 enum Sketch {
